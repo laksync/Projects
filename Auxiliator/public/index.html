@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auxiliator-AI Student Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
+<link rel="icon" type="image/x-icon" href="fav.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: black;">
+    <img src="fav.png" id="logo" style="display:none">
+       <div id="chat-container" style="display:none;"></div>
+    <div class="center" id="mamla">
+      
+    <div class="hero">
+       
+        <img src="logo.png" class="mascot" id="mascot"/>
+
+        <div id="input-container">
+    <div class="input-row">
+       
+<input type="file" id="attach" hidden>
+
+<button id="attach-btn" class="press">
+    <i class="icon-paperclip"></i>
+</button>
+        <input type="text"
+               class="text"
+               placeholder="Search your query..."
+               onkeydown="handleEnter(event)">
+
+        <input type="button"
+               class="press"
+               onclick="start()"
+               value="↑">
+    </div>
+
+    <div class="mode" onclick="pdf()" id="press">
+        PDF Mode
+    </div>
+</div>
+        
+    
+</div>
+<script src="script.js"></script>
+</body>
+</html>
