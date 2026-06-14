@@ -68,7 +68,7 @@ border: 1px solid #444;
 .fixed-bottom{
     position:fixed;
     bottom:30px;
-    
+    left: 50%;
     transform:translateX(-50%);
     z-index:1000;
   
@@ -94,4 +94,31 @@ height:75px;
     align-items:center;
     gap:10px;
     width:100%;
+}
+.message{
+    display:flex;
+    width:100%;
+    margin:8px 0;
+}
+.message.user{
+    justify-content:flex-end;
+}
+.message.bot{
+    justify-content:flex-start;
+}
+.bubble{
+    max-width:50%;
+    padding:10px 16px;
+    border-radius:18px;
+    font-family:Inter, sans-serif;
+    line-height:1.4;
+    color:white;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+}
+.message.user .bubble{
+    background-color:#3a5a8a;
+}
+.message.bot .bubble{
+    background-color:#2a2a2a;
 }

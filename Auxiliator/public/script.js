@@ -2,7 +2,7 @@ async function start() {
     document.getElementById("logo").style.display="block";
 document.getElementById("input-container")
     .classList.add("fixed-bottom");
-    console.log("START CALLED");
+   
 
     const message =
         document.querySelector(".text").value;
@@ -18,7 +18,6 @@ if (mascot) {
         .style.display = "block";
 
    
-
     const response = await fetch("/chat", {
         method: "POST",
 
@@ -37,18 +36,19 @@ if (mascot) {
     document.getElementById("chat-container");
 document.getElementById("chat-container").style.paddingTop="10px";
 
-console.log("APPENDING");
-console.log(message);
-console.log(data.reply);
+
+const rawHtml = marked.parse(data.reply);
+const safeHtml = DOMPurify.sanitize(rawHtml);
 chat.innerHTML += `
-    <div class="message">
-        <b>You:</b> ${message}
+    <div class="message user">
+        <div class="bubble">${message}</div>
     </div>
 
-    <div class="message">
-        <b>Auxiliator:</b> ${data.reply}
+    <div class="message bot">
+        <div class="bubble">${safeHtml}</div>
     </div>
 `;
+document.getElementById("typing")?.remove();
 document.querySelector(".text").value = "";
 window.scrollTo({
     top: document.body.scrollHeight,
@@ -68,7 +68,7 @@ function pdf() {
     const btn = document.getElementById("press");
 
     if (pdfMode) {
-        btn.style.backgroundColor = "#444";
+        btn.style.backgroundColor = "#3a5a8a";
 btn.style.border = "1px solid white";
         
     } else {

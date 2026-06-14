@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+let conversationHistory = [];
 const express = require("express");
 const OpenAI = require("openai");
 
@@ -23,23 +23,22 @@ app.post("/chat", async (req, res) => {
 
         const completion = await client.chat.completions.create({
             model: "google/gemini-2.5-flash",
-          messages: [
+messages: [
   {
     role: "system",
     content: "Your name is 'Auxiliator', an AI student assistant. Give clear, concise answers and explain concepts in a way students can understand."
   },
-  {
-    role: "user",
-    content: message
-  }
+  ...conversationHistory,
+  { role: "user", content: message }
 ],
-              max_tokens: 500
+              max_tokens: 1500
         });
 
         res.json({
             reply: completion.choices[0].message.content
         });
-
+conversationHistory.push({ role: "user", content: message });
+conversationHistory.push({ role: "assistant", content: completion.choices[0].message.content });
     } catch (err) {
 
         console.error(err);
