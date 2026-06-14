@@ -20,9 +20,8 @@ Each project folder contains its own setup instructions and dependencies.
 
 ## Tech Stack
 
-- Languages: 
-- Frameworks/Tools: 
-
+- Languages: Python, JavaScript, HTML, CSS
+- Frameworks/Tools: Node.js, Express, OpenRouter API, Git/GitHub
 ## License
 
 This project is licensed under the MIT License.
